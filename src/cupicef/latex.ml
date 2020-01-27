@@ -118,9 +118,9 @@ and pp_const fmt (name, args) =
           fprintf fmt "%a %s %a" pp_term_wp a s pp_term_wp b
        | Some (s,_), [] -> fprintf fmt "%s" s
        | Some (s,_), args ->
-          fprintf fmt "(%s %a)" s (pp_list "\\ " pp_term_wp) args
+          fprintf fmt "%s %a" s (pp_list "\\ " pp_term_wp) args
        | None, [] -> pp_name fmt name
-       | None, _ -> fprintf fmt "(%a %a)" pp_name name (pp_list "\\ " pp_term_wp) args
+       | None, _ -> fprintf fmt "%a %a" pp_name name (pp_list "\\ " pp_term_wp) args
 
 and pp_lvl n fmt = function
   | Const (_,name)
